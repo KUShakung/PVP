@@ -1,6 +1,6 @@
     local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/naypramx/Ui__Project/Script/XeNonUi", true))()
     library:CreateWatermark("SleepHub")
-    local CenterHubNo1 = library:CreateWindow("UI EDIT BY NAYPRAMXD :) ",Enum.KeyCode.RightControl)
+    local CenterHubNo1 = library:CreateWindow("PVPเฉพาะ ",Enum.KeyCode.RightControl)
     local Tab = CenterHubNo1:CreateTab("Pvp ")
     local Sector1 = Tab:CreateSector("Combat","left")
     Sector1:AddLabel("PVP")
