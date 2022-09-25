@@ -309,3 +309,50 @@
             end)
         end
     end
+
+    Sector1:AddButton("GodHuman",,function()
+
+    local args = {
+        [1] = "BuyGodhuman"
+    }
+
+    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+    end)
+    Sector1:Button("Superhuman",function()
+		local args = {
+			[1] = "BuySuperhuman"
+		}
+		
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	Sector1:Button("Death Step",function()
+		local args = {
+			[1] = "BuyDeathStep"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	Sector1:Button("Sharkman Karate",function()
+		local args = {
+			[1] = "BuySharkmanKarate",
+			[2] = true
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+		local args = {
+			[1] = "BuySharkmanKarate"
+		}
+		game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
+	end)
+	Sector1:Button("Electric Claw",function()
+		local string_1 = "BuyElectricClaw";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+	end)
+	Sector1:Button("Dragon Talon",function()
+		local string_1 = "BuyDragonTalon";
+		local bool_1 = true;
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1, bool_1);
+		local string_1 = "BuyDragonTalon";
+		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
+		Target:InvokeServer(string_1);
+	end)
