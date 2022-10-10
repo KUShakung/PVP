@@ -356,7 +356,7 @@
 		local Target = game:GetService("ReplicatedStorage").Remotes["CommF_"];
 		Target:InvokeServer(string_1);
 	end)
-    Sector1:AddButton("Dragon Talon",function()
+    Sector1:AddButton("MinkV4[FAKE]",function()
         syn.set_thread_identity(5)
 
         local ReplicatedStorage = game:GetService("ReplicatedStorage")
