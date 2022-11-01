@@ -400,26 +400,26 @@ Sector1:AddButton("MinkV4[FAKE]",function()
     end))
 end)
 local Sector2 = Tab:CreateSector("Misc","right")
-do
-    local NM = game:GetService("Workspace"):FindFirstChild("Noclip")
-    if NM then
-        NM:Destroy()
-    end
-end
-local Noclip = Instance.new("Part",workspace)
-    Noclip.Name = "Noclip"
-    Noclip.Anchored = true
-    Noclip.CanCollide = true
-    Noclip.Transparency = 1
-    Noclip.Size = Vector3.new(30,0.5,30)
-function Noclip()
-game:GetService("Workspace"):FindFirstChild("Noclip").CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0,-3.9,0)
-end
-Sector2:AddToggle("Walk on Water",false,function(w)
-_G.Noclip = w
-while _G.Noclip do wait()
-pcall(function()
-Noclip()
-end)
-end
-end)
+	if game.workspace:FindFirstChild("WaterWalk") then
+		game.workspace:FindFirstChild("WaterWalk"):Destroy()
+	end
+	platform = Instance.new("Part")
+	platform.Name = "WaterWalk"
+	platform.Size = Vector3.new(math.huge, 1, math.huge)
+	platform.Transparency = 1
+	platform.Anchored = true
+	platform.Parent = game.workspace
+    Sector2:AddToggle("Walk on Water",false,function(value)
+    WaterWalk = value
+    end)
+	spawn(function()
+		while wait() do
+			if WaterWalk then
+				platform.CanCollide = true
+				platform.Position = Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.X,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Y * 0 -5, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Z)
+			else
+				platform.CanCollide = false
+				platform.Position = Vector3.new(game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.X,game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Y * 0 -6, game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position.Z)
+			end
+		end
+	end)
